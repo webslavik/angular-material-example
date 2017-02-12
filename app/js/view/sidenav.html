@@ -5,4 +5,29 @@
 	<md-toolbar>
 		<h1>Contacts</h1>
 	</md-toolbar>
+	<div layout-padding>
+		<md-autocomplete
+			 md-search-text="mainCtrl.searchText"
+			 md-items='item in mainCtrl.users | filter:mainCtrl.searchText'
+			 md-item-text='item.name'
+			 md-min-length='3'
+			 placeholder='filter'>
+			 <md-item-template>
+          <span md-highlight-text="mainCtrl.searchText" md-highlight-flags="^i">{{ item.name }}</span>
+        </md-item-template>
+         <md-not-found>
+          No states matching "{{mainCtrl.searchText}}" were found.
+        </md-not-found>
+		</md-autocomplete>
+	</div>
+	<md-content>
+		<md-list class='users-list'>
+			<md-list-item class='users-list__user' ng-repeat='user in mainCtrl.users | filter:mainCtrl.searchText | orderBy:"name"'>
+				<md-button ng-click='mainCtrl.selectUser(user)' ng-class='{ "is-active": user === mainCtrl.selected }'>
+					<md-icon md-svg-icon='{{ user.avatar }}' class='avatar'></md-icon>
+					{{ user.name }}
+				</md-button>
+			</md-list-item>
+		</md-list>
+	</md-content>
 </md-sidenav>
