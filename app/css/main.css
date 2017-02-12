@@ -40,3 +40,13 @@
   padding-left: 40px;
   padding-right: 40px;
   padding-top: 30px; }
+
+@media (max-width: 600px) {
+  .content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px; } }
+
+.content__tabs {
+  max-width: 800px;
+  width: 100%; }

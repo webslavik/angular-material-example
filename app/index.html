@@ -23,6 +23,17 @@
 			<div ng-include="'js/view/toolbar-content.html'" layout></div>
 			<md-content flex class='content'>
 				<div ng-include="'js/view/main-content.html'"></div>
+
+				<md-tabs md-stretch-tabs='always' 
+								 md-selected='mainCtrl.tabIndex'
+								 class='content__tabs'>
+					<md-tab label='Bio'>
+						<div ng-include="'js/view/tab-bio.html'"></div>
+					</md-tab>
+					<md-tab label='Notes'>
+						<div ng-include="'js/view/tab-notes.html'"></div>
+					</md-tab>
+				</md-tabs>
 			</md-content>
 		</div>
 

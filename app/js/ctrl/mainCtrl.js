@@ -18,6 +18,8 @@
 			if (sidenav.isOpen()) {
 				sidenav.close();
 			}
+
+			vm.tabIndex = 0;
 		}
 
 		vm.users = usersFactory.users;
