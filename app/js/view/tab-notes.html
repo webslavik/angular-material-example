@@ -1,1 +1,13 @@
-this is notes
+<div ng-if='!mainCtrl.selected.notes.length'>No notes for {{ mainCtrl.selected.name }}, yet.</div>
+
+<md-content>
+	<md-card ng-repeat='note in mainCtrl.selected.notes'>
+		<md-card-content>
+			<h3>{{ note.title }}</h3>
+			<div>{{ note.date | date: 'MM/dd/yyyy' }}</div>
+		</md-card-content>
+		<md-card-actions layout='row' layout-align='end center'>
+			<md-button ng-click='mainCtrl.removeNote(note)'>Remove</md-button>
+		</md-card-actions>
+	</md-card>
+</md-content>
