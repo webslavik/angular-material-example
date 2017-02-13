@@ -2,7 +2,7 @@
 
 	'use strict';
 
-	let mainCtrl = function($mdSidenav, $mdToast, $mdDialog, $mdMedia, usersFactory) {
+	let mainCtrl = function($mdSidenav, $mdToast, $mdDialog, $mdMedia, $mdBottomSheet, usersFactory) {
 		let vm = this;
 		vm.selected = null;
 
@@ -21,6 +21,7 @@
 
 		vm.selectUser = (user) => {
 			vm.selected = user;
+			usersFactory.selectedUser = vm.selected;
 			let sidenav = $mdSidenav('left');
 			if (sidenav.isOpen()) {
 				sidenav.close();
@@ -69,10 +70,23 @@
 			});
 		}
 
+		vm.showContactPanel = (event) => {
+			$mdBottomSheet.show({
+				parent: angular.element(document.getElementById('wrapper')),
+				templateUrl: 'js/view/contactPanel.html',
+				controller: 'contactPanelCtrl',
+				controllerAs: 'contactPanelCtrl',
+				bindToController: true,
+				targetEvent: event
+			}).then((clickItem) => {
+				console.log(clickItem.name + ' clicked!');
+			}, () => {});
+		}
+
 
 		vm.searchText = '';
 		vm.users = usersFactory.users;
-		vm.selected = vm.users[0];
+		vm.selected = usersFactory.defaultUser;
 
 	}
 

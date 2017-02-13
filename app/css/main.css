@@ -1,6 +1,11 @@
 .main-container {
   height: 100%; }
 
+.name {
+  padding-left: 5px;
+  font-size: 1.1em;
+  font-weight: bold; }
+
 .avatar {
   display: inline-block;
   width: 80px;
@@ -58,3 +63,11 @@
 .content__tabs {
   max-width: 900px;
   width: 100%; }
+
+.panel-list__item {
+  padding-left: 20px;
+  padding-bottom: 20px; }
+  .panel-list__item .md-button {
+    display: block;
+    width: 100%;
+    text-align: left; }

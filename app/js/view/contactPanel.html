@@ -1,0 +1,13 @@
+<md-bottom-sheet>
+  <md-subheader ng-cloak>
+    Contact <span class='name'>{{ contactPanelCtrl.user.name }}</span>
+  </md-subheader>
+  <md-list layout='column'>
+    <md-item ng-repeat='item in contactPanelCtrl.actions' class='panel-list__item'>
+      <md-button ng-click='contactPanelCtrl.submitContact(item)' id='item_{{ $intex }}'>
+        <md-icon md-svg-icon='{{ item.icon }}'></md-icon>
+        {{ item.name }}
+      </md-button>
+    </md-item>
+  </md-list>
+</md-bottom-sheet>

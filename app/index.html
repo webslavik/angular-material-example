@@ -19,7 +19,7 @@
 		
 		<div ng-include="'js/view/sidenav.html'" layout class='sidenav'></div>
 
-		<div layout='column' flex>
+		<div layout='column' flex id='wrapper'>
 			<div ng-include="'js/view/toolbar-content.html'" layout></div>
 			<md-content flex class='content'>
 				<div ng-include="'js/view/main-content.html'"></div>
@@ -50,8 +50,9 @@
 	<!-- endbuild -->
 	<!-- build:js js/main.js -->
 	<script src="js/app.js"></script>
-	<script src="js/ctrl/mainCtrl.js"></script>
-	<script src="js/ctrl/addUserCtrl.js"></script>
+	<script src="js/controllers/mainCtrl.js"></script>
+	<script src="js/controllers/addUserCtrl.js"></script>
+	<script src="js/controllers/contactPanelCtrl.js"></script>
 	<script src="js/factories/usersFactory.js"></script>
 	<!-- endbuild -->
 </body>

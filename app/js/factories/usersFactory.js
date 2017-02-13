@@ -40,6 +40,8 @@
     ];
 
     service.users = users;
+    service.defaultUser = users[0];
+    service.selectedUser;
 
 		return service;
 	}
