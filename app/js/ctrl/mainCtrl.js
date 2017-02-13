@@ -2,7 +2,7 @@
 
 	'use strict';
 
-	let mainCtrl = function($mdSidenav, $mdToast, usersFactory) {
+	let mainCtrl = function($mdSidenav, $mdToast, $mdDialog, $mdMedia, usersFactory) {
 		let vm = this;
 		vm.selected = null;
 
@@ -35,7 +35,38 @@
 		};
 
 		vm.addUser = (event) => {
-			console.log('Add user');
+			let self = this;
+			let useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+
+			$mdDialog.show({
+				templateUrl: 'js/view/newUserDialog.html',
+				parent: angular.element(document.body),
+				targetEvent: event,
+				controller: 'addUserCtrl',
+				controllerAs: 'addUserCtrl',
+				clickOutsideToClose: true,
+				fullscreen: useFullScreen
+			}).then((user) => {
+				self.openToast('User added');
+			}, () => {
+				console.log('You cancelled the dialog.');
+			})
+		}
+
+		vm.clearNotes = (event) => {
+			let confirm = $mdDialog.confirm()
+						 .title('Do you want to clear delete notes?')
+						 .textContent('All of the banks have agreed to forgive you your debts.')
+						 .targetEvent(event)
+						 .ok('Yes')
+		         .cancel('No');
+
+			$mdDialog.show(confirm).then(() => {
+				vm.selected.notes = [];
+				vm.openToast('Clear all notes!');
+			}, () => {
+				console.log(`You didn't clear notes.`);
+			});
 		}
 
 
