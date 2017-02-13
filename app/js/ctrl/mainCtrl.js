@@ -34,6 +34,10 @@
 			vm.openToast('Note was removed');
 		};
 
+		vm.addUser = (event) => {
+			console.log('Add user');
+		}
+
 
 		vm.searchText = '';
 		vm.users = usersFactory.users;

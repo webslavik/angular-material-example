@@ -16,6 +16,14 @@
   margin: auto;
   font-weight: 400; }
 
+.list-content {
+  position: absolute;
+  top: 135px;
+  bottom: 0;
+  left: 0px;
+  right: 0;
+  overflow: auto; }
+
 .users-list {
   padding-top: 20px;
   padding-left: 10px;

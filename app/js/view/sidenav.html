@@ -13,14 +13,14 @@
 			 md-min-length='3'
 			 placeholder='filter'>
 			 <md-item-template>
-          <span md-highlight-text="mainCtrl.searchText" md-highlight-flags="^i">{{ item.name }}</span>
-        </md-item-template>
-         <md-not-found>
-          No states matching "{{mainCtrl.searchText}}" were found.
-        </md-not-found>
+					<span md-highlight-text="mainCtrl.searchText" md-highlight-flags="^i">{{ item.name }}</span>
+				</md-item-template>
+				 <md-not-found>
+					No states matching "{{mainCtrl.searchText}}" were found.
+				</md-not-found>
 		</md-autocomplete>
 	</div>
-	<md-content>
+	<md-content class='list-content'>
 		<md-list class='users-list'>
 			<md-list-item class='users-list__user' ng-repeat='user in mainCtrl.users | filter:mainCtrl.searchText | orderBy:"name"'>
 				<md-button ng-click='mainCtrl.selectUser(user)' ng-class='{ "is-active": user === mainCtrl.selected }'>
@@ -30,4 +30,7 @@
 			</md-list-item>
 		</md-list>
 	</md-content>
+	<md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click='mainCtrl.addUser($event)'>
+		<ng-md-icon icon='add'></ng-md-icon>
+	</md-button>
 </md-sidenav>
