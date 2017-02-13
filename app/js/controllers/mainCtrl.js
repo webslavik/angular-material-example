@@ -48,6 +48,9 @@
 				clickOutsideToClose: true,
 				fullscreen: useFullScreen
 			}).then((user) => {
+				let newUser = usersFactory.createUser(user);
+				vm.users.push(newUser);
+				vm.selected = newUser;
 				self.openToast('User added');
 			}, () => {
 				console.log('You cancelled the dialog.');
@@ -60,7 +63,7 @@
 						 .textContent('All of the banks have agreed to forgive you your debts.')
 						 .targetEvent(event)
 						 .ok('Yes')
-		         .cancel('No');
+						 .cancel('No');
 
 			$mdDialog.show(confirm).then(() => {
 				vm.selected.notes = [];

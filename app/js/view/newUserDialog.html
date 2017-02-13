@@ -1,8 +1,33 @@
 <md-dialog>
 	<form name='userForm' ng-submit='addUserCtrl.save()'>
-		<md-dialog-content>
-			Content
-		</md-dialog-content>
+
+		<md-content layout-padding>
+			<div layout='column' layout-padding>
+				<div layout-gt-sm='row'>
+					<md-input-container class='md-block' flex>
+						<label>Avatar</label>
+						<md-select ng-model='addUserCtrl.user.avatar' name='avatar'>
+							<md-option ng-repeat="avatar in addUserCtrl.avatars" ng-value="avatar">
+								<md-icon md-svg-icon='{{ avatar }}'></md-icon>
+							</md-option>
+						</md-select>
+					</md-input-container>
+					<md-input-container class='md-block' flex>
+						<label>First name</label>
+						<input ng-model="addUserCtrl.user.firstName">
+					</md-input-container>
+					<md-input-container class='md-block' flex>
+						<label>Second name</label>
+						<input ng-model="addUserCtrl.user.lastName">
+					</md-input-container>
+				</div>
+				<md-input-container class="md-block">
+					<label>Biography</label>
+					<textarea ng-model="addUserCtrl.user.bio"  name='bio'></textarea>
+				</md-input-container>
+			</div>
+		</md-content>
+
 		<md-dialog-actions>
 			<md-button ng-click='addUserCtrl.cancel()'>Cancel</md-button>
 			<md-button type='submit' class='md-primary md-raised'>Save</md-button>

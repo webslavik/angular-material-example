@@ -39,6 +39,15 @@
       }
     ];
 
+    service.createUser = (user) => {
+      return {
+        name: user.firstName + ' ' + user.lastName,
+        avatar: user.avatar,
+        bio: user.bio,
+        notes: []
+      }
+    }
+
     service.users = users;
     service.defaultUser = users[0];
     service.selectedUser;
