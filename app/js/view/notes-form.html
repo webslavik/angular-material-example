@@ -1,15 +1,22 @@
 <md-content layout-padding>
-	<form name='noteForm' ng-submit='mainCtrl.addNote()'>
+	<form name='noteForm' ng-submit='mainCtrl.addNote(this)'>
 		<div layout-gt-xs='row'>
 			<md-input-container class='md-block' flex>
 				<label>Title</label>
-				<input ng-model="mainCtrl.newNote.title">
+				<input ng-model="mainCtrl.newNote.title" name='title' required>
+				<div ng-messages='noteForm.title.$error'>
+					<div ng-message="required">This is required.</div>
+				</div>
 			</md-input-container>
 			 <md-datepicker ng-model="mainCtrl.newNote.date" 
 			 								md-placeholder='Enter date'
 			 								class='date-row'></md-datepicker>
 			 <div class="md-actions">
-			 	<md-button class='md-primary md-raised date-row' type='submit'>Add</md-button>
+			 	<md-button class='md-primary md-raised date-row'
+			 	 					 type='submit'
+			 	 					 ng-disabled='noteForm.$invalid'>
+			 	 					 Add
+			 	</md-button>
 			 </div>
 		</div>
 	</form>

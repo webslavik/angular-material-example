@@ -28,12 +28,6 @@
 			vm.tabIndex = 0;
 		}
 
-		vm.removeNote = (note) => {
-			const index = vm.selected.notes.indexOf(note);
-			vm.selected.notes.splice(index, 1);
-			vm.openToast('Note was removed');
-		};
-
 		vm.addUser = (event) => {
 			let self = this;
 			let useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -55,6 +49,26 @@
 				console.log('You cancelled the dialog.');
 			})
 		}
+
+		vm.addNote = (form) => {
+			const note = usersFactory.createUserNote(vm.newNote);
+			vm.selected.notes.push(note);
+
+			// reset the form
+			vm.newNote.title = null;
+			vm.newNote.date = null;
+			form.noteForm.$setUntouched();
+			form.noteForm.$setPristine();
+
+			vm.openToast('Notes added');
+		}
+
+		vm.removeNote = (note) => {
+			const index = vm.selected.notes.indexOf(note);
+			vm.selected.notes.splice(index, 1);
+
+			vm.openToast('Note was removed');
+		};
 
 		vm.clearNotes = (event) => {
 			let confirm = $mdDialog.confirm()
@@ -83,12 +97,6 @@
 			}).then((clickItem) => {
 				console.log(clickItem.name + ' clicked!');
 			}, () => {});
-		}
-
-		vm.addNote = () => {
-			const note = usersFactory.createUserNote(vm.newNote);
-			vm.selected.notes.push(note);
-			vm.openToast('Notes added');
 		}
 
 

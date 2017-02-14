@@ -1,36 +1,46 @@
 <md-dialog>
 	<form name='userForm' ng-submit='addUserCtrl.save()'>
-
 		<md-content layout-padding>
 			<div layout='column' layout-padding>
 				<div layout-gt-sm='row'>
 					<md-input-container class='md-block' flex>
 						<label>Avatar</label>
-						<md-select ng-model='addUserCtrl.user.avatar' name='avatar'>
+						<md-select ng-model='addUserCtrl.user.avatar' name='avatar' required>
 							<md-option ng-repeat="avatar in addUserCtrl.avatars" ng-value="avatar">
 								<md-icon md-svg-icon='{{ avatar }}'></md-icon>
 							</md-option>
 						</md-select>
+						<div ng-messages='userForm.avatar.$error'>
+							<div ng-message='required'>This is requred.</div>
+						</div>
 					</md-input-container>
 					<md-input-container class='md-block' flex>
 						<label>First name</label>
-						<input ng-model="addUserCtrl.user.firstName">
+						<input ng-model="addUserCtrl.user.firstName" name='firstName' required>
+						<div ng-messages='userForm.firstName.$error'>
+							<div ng-message='required'>This is requred.</div>
+						</div>
 					</md-input-container>
 					<md-input-container class='md-block' flex>
 						<label>Second name</label>
-						<input ng-model="addUserCtrl.user.lastName">
+						<input ng-model="addUserCtrl.user.lastName" name='lastName' required>
+						<div ng-messages='userForm.lastName.$error'>
+							<div ng-message='required'>This is requred.</div>
+						</div>
 					</md-input-container>
 				</div>
 				<md-input-container class="md-block">
 					<label>Biography</label>
-					<textarea ng-model="addUserCtrl.user.bio"  name='bio'></textarea>
+					<textarea ng-model="addUserCtrl.user.bio"  name='bio' required></textarea>
+					<div ng-messages='userForm.bio.$error'>
+						<div ng-message='required'>This is requred.</div>
+					</div>
 				</md-input-container>
 			</div>
 		</md-content>
-
 		<md-dialog-actions>
 			<md-button ng-click='addUserCtrl.cancel()'>Cancel</md-button>
-			<md-button type='submit' class='md-primary md-raised'>Save</md-button>
+			<md-button ng-disabled='userForm.$invalid' type='submit' class='md-primary md-raised'>Save</md-button>
 		</md-dialog-actions>
 	</form>
 </md-dialog>

@@ -1,6 +1,6 @@
 (function() {
 
-	angular.module('app', ['ngMaterial', 'ngMdIcons'])
+	angular.module('app', ['ngMaterial', 'ngMdIcons', 'ngMessages'])
 				 .config(($mdIconProvider, $mdThemingProvider) => {
 				  	$mdIconProvider
 				  		.defaultIconSet('img/icons/avatars.svg', 128)
