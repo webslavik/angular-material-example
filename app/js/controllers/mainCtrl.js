@@ -4,7 +4,6 @@
 
 	let mainCtrl = function($mdSidenav, $mdToast, $mdDialog, $mdMedia, $mdBottomSheet, usersFactory) {
 		let vm = this;
-		vm.selected = null;
 
 		vm.openToast = (message) => {
 			$mdToast.show(
@@ -59,7 +58,7 @@
 
 		vm.clearNotes = (event) => {
 			let confirm = $mdDialog.confirm()
-						 .title('Do you want to clear delete notes?')
+						 .title('Do you want to clear notes?')
 						 .textContent('All of the banks have agreed to forgive you your debts.')
 						 .targetEvent(event)
 						 .ok('Yes')
@@ -86,7 +85,14 @@
 			}, () => {});
 		}
 
+		vm.addNote = () => {
+			const note = usersFactory.createUserNote(vm.newNote);
+			vm.selected.notes.push(note);
+			vm.openToast('Notes added');
+		}
 
+
+		// vm.selected = null;
 		vm.searchText = '';
 		vm.users = usersFactory.users;
 		vm.selected = usersFactory.defaultUser;

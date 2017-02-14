@@ -1,0 +1,16 @@
+<md-content layout-padding>
+	<form name='noteForm' ng-submit='mainCtrl.addNote()'>
+		<div layout-gt-xs='row'>
+			<md-input-container class='md-block' flex>
+				<label>Title</label>
+				<input ng-model="mainCtrl.newNote.title">
+			</md-input-container>
+			 <md-datepicker ng-model="mainCtrl.newNote.date" 
+			 								md-placeholder='Enter date'
+			 								class='date-row'></md-datepicker>
+			 <div class="md-actions">
+			 	<md-button class='md-primary md-raised date-row' type='submit'>Add</md-button>
+			 </div>
+		</div>
+	</form>
+</md-content>

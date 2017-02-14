@@ -47,6 +47,12 @@
         notes: []
       }
     }
+    service.createUserNote = (note) => {
+      return {
+        title: note.title,
+        date: new Date(note.date)
+      }
+    }
 
     service.users = users;
     service.defaultUser = users[0];
