@@ -33,7 +33,7 @@
 			let useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
 
 			$mdDialog.show({
-				templateUrl: 'js/view/newUserDialog.html',
+				templateUrl: 'view/newUserDialog.html',
 				parent: angular.element(document.body),
 				targetEvent: event,
 				controller: 'addUserCtrl',
@@ -89,7 +89,7 @@
 		vm.showContactPanel = (event) => {
 			$mdBottomSheet.show({
 				parent: angular.element(document.getElementById('wrapper')),
-				templateUrl: 'js/view/contactPanel.html',
+				templateUrl: 'view/contactPanel.html',
 				controller: 'contactPanelCtrl',
 				controllerAs: 'contactPanelCtrl',
 				bindToController: true,

@@ -60,8 +60,8 @@ gulp.task('build', ['clean', 'sass'], () => {
 											.pipe(gulpif('*.css', cleanCSS()))
 											.pipe(gulp.dest('dist/'));
 
-	const viewHTML = gulp.src('app/js/view/*.html')
-											.pipe(gulp.dest('dist/js/view/'));
+	const viewHTML = gulp.src('app/view/*.html')
+											.pipe(gulp.dest('dist/view/'));
 
 	const images = gulp.src('app/img/**/*')
 											.pipe(gulp.dest('dist/img/'));

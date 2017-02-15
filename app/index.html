@@ -17,22 +17,22 @@
 
 	<div class='main-container' layout='row' ng-controller='mainCtrl as mainCtrl'>
 		
-		<div ng-include="'js/view/sidenav.html'" layout class='sidenav'></div>
+		<div ng-include="'view/sidenav.html'" layout class='sidenav'></div>
 
 		<div layout='column' flex id='wrapper'>
-			<div ng-include="'js/view/toolbar-content.html'" layout></div>
+			<div ng-include="'view/toolbar-content.html'" layout></div>
 			<md-content flex class='content'>
-				<div ng-include="'js/view/main-content.html'"></div>
+				<div ng-include="'view/main-content.html'"></div>
 
 				<md-tabs md-stretch-tabs='always' 
 								 md-dynamic-height
 								 md-selected='mainCtrl.tabIndex'
 								 class='content__tabs'>
 					<md-tab label='Bio'>
-						<div ng-include="'js/view/tab-bio.html'"></div>
+						<div ng-include="'view/tab-bio.html'"></div>
 					</md-tab>
 					<md-tab label='Notes'>
-						<div ng-include="'js/view/tab-notes.html'"></div>
+						<div ng-include="'view/tab-notes.html'"></div>
 					</md-tab>
 				</md-tabs>
 			</md-content>
@@ -48,7 +48,6 @@
 	<script src="libs/angular-material/angular-material.js"></script>
 	<script src='libs/angular-material-icons/angular-material-icons.js'></script>
 	<!-- endbuild -->
-	
 	<!-- build:js js/main.js -->
 	<script src="js/app.js"></script>
 	<script src="js/controllers/mainCtrl.js"></script>
